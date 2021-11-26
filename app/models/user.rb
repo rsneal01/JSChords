@@ -1,3 +1,3 @@
-class User < ApplicationRecord
-    has_many :songs
-end
+# class User < ApplicationRecord
+#     has_many :songs
+# end
