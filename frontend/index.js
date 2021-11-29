@@ -1,7 +1,7 @@
 const app = new App()
 
 function fetchArtists() {
-    return fetch("http://127.0.0.1:3000")
+    return fetch("https://anapioficeandfire.com/api/books")
       .then(resp => resp.json())
       .then(json => renderArtists(json))
   }
