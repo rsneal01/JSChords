@@ -1,20 +1,23 @@
-const app = new App()
-
-function fetchArtists() {
+function fetchBooks() {
     return fetch("https://anapioficeandfire.com/api/books")
       .then(resp => resp.json())
-      .then(json => renderArtists(json))
+      .then(json => renderBooks(json))
   }
-
-  function renderArtists(artists) {
+  
+  function renderBooks(books) {
     const main = document.querySelector('main')
-    artists.forEach(artist => {
+    books.forEach(book => {
       const h2 = document.createElement('h2')
-      h2.innerHTML = artist.name
+      h2.innerHTML = book.name
       main.appendChild(h2)
+        let element = document.createElement('div')
+        document.body.appendChild(element)
+        element.innerText = "test"
     })
   }
   
   document.addEventListener('DOMContentLoaded', function() {
-    fetchArtists()
+    fetchBooks()
   })
+
+  

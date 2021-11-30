@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # resources :users
   resources :artists do
     resources :songs, only: [:index, :show, :new]
+  end
   resources :songs
   # get '/signin', to: 'sessions#new', as: 'signin'
   # post '/session', to: 'sessions#create', as: 'session'

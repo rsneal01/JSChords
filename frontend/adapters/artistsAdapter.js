@@ -7,5 +7,11 @@ class ArtistsAdapter {
         return fetch(this.baseUrl).then(res => res.json())
       }
 
-      
+    postArtistToApi(configurationObject) {
+        return fetch(this.baseUrl, configurationObject)
+        .then(response => response.json())
+        .catch(error => console.log("Error: " + error))
+    }
+
+    
 }
