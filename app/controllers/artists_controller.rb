@@ -2,8 +2,9 @@ class ArtistsController < ApplicationController
 
   def index
     artists = Artist.all
-    # binding.pry
-    render json: ArtistSerializer.new(artists)
+    render json: artists
+    # render json: ArtistSerializer.new(artists)
+
   end
 
   def show
