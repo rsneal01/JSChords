@@ -2,15 +2,18 @@ class ArtistsController < ApplicationController
 
   def index
     artists = Artist.all
-    render json: artists
-    # render json: ArtistSerializer.new(artists)
-
+    # render json: artists
+   
+    options = {
+      include: [:songs]
+  }
+  render json: ArtistSerializer.new(artists, options)
   end
 
   def show
     # binding.pry
     artist = Artist.find(params[:id])
-    render json: artist
+    render json: ArtistSerializer.new(artist)
   end
 
   private

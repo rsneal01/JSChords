@@ -3,7 +3,7 @@ function fetchArtists() {
     // return fetch("https://anapioficeandfire.com/api/books")
       .then(resp => resp.json())
       .then(json => renderArtists(json))
-
+      .catch(error => console.log(error) );
   }
   
   function renderArtists(artists){
@@ -11,7 +11,7 @@ function fetchArtists() {
     // link to individual artist should have event listener to trigger artist show page function
     const main = document.querySelector('main')
     const h2 = document.createElement('h2')
-    h2.innerText = artists
+    h2.innerText = "artists"
     main.appendChild(h2)
   }
 
