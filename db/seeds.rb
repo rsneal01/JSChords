@@ -8,4 +8,4 @@
 
 
 beyonce = Artist.create(name: "Beyonce")
-halo = Song.create(name: "Halo", artist: beyonce, intro: "G Am Em C", verse: "G Am Em C", chorus: "Am Em C G")
+halo = Song.create(name: "Halo", artist_id: beyonce.id, intro: "G Am Em C", verse: "G Am Em C", chorus: "Am Em C G")

@@ -8,11 +8,11 @@ class SongsController < ApplicationController
     def create
         # binding.pry
         song = Song.new(song_params)
-        # if song.save
-        redirect_to song_path(song)
-        # else 
-        #     render 'new'
-        # end
+        if song.save
+            render json: song, status: :accepted
+        else
+            render json: {errors: song.errors.full_messages}, status: :unprocessible_entity
+        end
     end
 
     def show

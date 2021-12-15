@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   # resources :artists do
   #   resources :songs, only: [:index, :show, :new]
   # end
-  resources :artists
-  resources :songs
+  resources :artists, only: [:index]
+  # resources :songs
   # get '/signin', to: 'sessions#new', as: 'signin'
   # post '/session', to: 'sessions#create', as: 'session'
   # delete '/session/', to: 'sessions#destroy'
