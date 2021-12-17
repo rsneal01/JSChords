@@ -3,7 +3,7 @@ function fetchArtists() {
   const main = document.querySelector('main')
     fetch("http://127.0.0.1:3000")
       .then(resp => {
-      resp.json()
+      return resp.json()
     })
       .then(artists => {
         artists.data.forEach(artist => {
