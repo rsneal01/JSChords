@@ -1,6 +1,6 @@
 
 function fetchArtists() {
-  const main = document.querySelector('main')
+  const artistsContainer = document.querySelector('#artists-container')
     fetch("http://127.0.0.1:3000")
       .then(resp => {
       return resp.json()
@@ -9,7 +9,7 @@ function fetchArtists() {
         artists.data.forEach(artist => {
           const h2 = document.createElement('h2')
           h2.innerText = artist.attributes.name
-          main.appendChild(h2)
+          artistsContainer.appendChild(h2)
 
         })
           // renderArtists(json)
