@@ -7,5 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+# Artist.destroy_all
+# Song.destroy_all
+
 beyonce = Artist.create(name: "Beyonce")
 halo = Song.create(name: "Halo", artist_id: beyonce.id, intro: "G Am Em C", verse: "G Am Em C", chorus: "Am Em C G")

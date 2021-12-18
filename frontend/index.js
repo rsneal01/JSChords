@@ -1,3 +1,10 @@
+document.addEventListener('DOMContentLoaded', function() {
+  fetchArtists()
+
+  const createArtistForm = document.querySelector('#create-artist-form')
+
+  createArtistForm.addEventListener("submit", (e) => createFormHandler(e))
+})
 
 function fetchArtists() {
   const artistsContainer = document.querySelector('#artists-container')
@@ -12,8 +19,13 @@ function fetchArtists() {
           artistsContainer.appendChild(h2)
 
         })
-          // renderArtists(json)
+
   })
+}
+
+function createFormHandler(e) {
+  e.preventDefault()
+  console.log(e);
 }
   
   function renderArtists(artists) {
@@ -27,6 +39,9 @@ function fetchArtists() {
       main.appendChild(h2)
     })
   }
+
+  
+  
 
 // function fetchBooks() {
 //   return fetch("https://anapioficeandfire.com/api/books")
@@ -43,9 +58,6 @@ function fetchArtists() {
 //   })
 // }
 
-  document.addEventListener('DOMContentLoaded', function() {
-    fetchArtists()
-   
-  })
+  
 
 //   NEED EVENT LISTENER!!
