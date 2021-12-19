@@ -25,7 +25,14 @@ function fetchArtists() {
 
 function createFormHandler(e) {
   e.preventDefault()
-  console.log(e);
+  const nameInput = document.querySelector('#input-name').value
+  // const foreignKeyId = parseInt(document.querySelector('#artists').value)
+  // query selector for grabbing foreign key
+  postFetch(nameInput)
+}
+
+function postFetch() {
+  
 }
   
   function renderArtists(artists) {
