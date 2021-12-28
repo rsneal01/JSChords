@@ -1,26 +1,44 @@
+const endPoint = "http://127.0.0.1:3000"
+
 document.addEventListener('DOMContentLoaded', function() {
-  fetchArtists()
+  getArtists()
 
   const createArtistForm = document.querySelector('#create-artist-form')
 
   createArtistForm.addEventListener("submit", (e) => createFormHandler(e))
 })
 
-function fetchArtists() {
-  const artistsContainer = document.querySelector('#artists-container')
-    fetch("http://127.0.0.1:3000")
+function getArtists() {
+  // const artistsContainer = document.querySelector('#artists-container')
+    fetch(endPoint)
       .then(resp => {
       return resp.json()
     })
-      .then(artists => {
-        artists.data.forEach(artist => {
-          const h2 = document.createElement('h2')
-          h2.innerText = artist.attributes.name
-          artistsContainer.appendChild(h2)
+    .then(artist => {
+      artist.data.forEach(artist => {
+          // check how data is nested
+          render(artist)
+      })
+      // .then(artists => {
+      //   artists.data.forEach(artist => {
+      //     const h2 = document.createElement('h2')
+      //     h2.innerText = artist.attributes.name
+      //     artistsContainer.appendChild(h2)
 
-        })
+      //   })
 
   })
+}
+
+function render(artist) {
+  const artistMarkup =
+  <div data-id=${artist.id}>
+  <h3>${artist.data.name}</h3>
+  <button data-id=${artist.data.id}>edit</button>
+  </div>
+  <br></br>;
+
+  document.querySelector('#artist-container').innerHTML += artistMarkup  
 }
 
 function createFormHandler(e) {
@@ -31,8 +49,8 @@ function createFormHandler(e) {
   postFetch(nameInput)
 }
 
-function postFetch() {
-  
+function postFetch(name) {
+  console.log(name);
 }
   
   function renderArtists(artists) {
@@ -48,22 +66,6 @@ function postFetch() {
   }
 
   
-  
-
-// function fetchBooks() {
-//   return fetch("https://anapioficeandfire.com/api/books")
-//     .then(resp => resp.json())
-//     .then(json => renderBooks(json))
-// }
-
-// function renderBooks(books) {
-//   const main = document.querySelector('main')
-//   books.forEach(book => {
-//     const h2 = document.createElement('h2')
-//     h2.innerHTML = book.name
-//     main.appendChild(h2)
-//   })
-// }
 
   
 
