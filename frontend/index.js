@@ -31,14 +31,19 @@ function getArtists() {
 }
 
 function render(artist) {
-  const artistMarkup =
-  <div data-id=${artist.id}>
-  <h3>${artist.data.name}</h3>
-  <button data-id=${artist.data.id}>edit</button>
-  </div>
-  <br></br>;
+  const artistsContainer = document.querySelector('#artists-container')
+  const h2 = document.createElement('h2')
+  h2.innerText = artist.attributes.name
+  artistsContainer.appendChild(h2)
 
-  document.querySelector('#artist-container').innerHTML += artistMarkup  
+  // const artistMarkup =
+  // <div data-id=${artist.id}>
+  // <h3>${artist.attributes.name}</h3>
+  // <button data-id=${artist.id}>edit</button>
+  // </div>
+  // <br></br>;
+
+  // document.querySelector('#artist-container').innerHTML += artistMarkup  
 }
 
 function createFormHandler(e) {
