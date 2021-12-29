@@ -1,10 +1,12 @@
-class Artists {
-    constructor(name){
-        this.name = name
-        this.recipes = [];
-        this.adapter = new RecipesAdapter();
+class Artist {
+    constructor(artist, artistAttributes){
+        this.id = artist.id
+        this.name = artistAttributes.name
+        Artist.all.push(this)
     }
+}
 
+Artist.all = [];
     // createArtistCard(){
     //     const card = document.createElement('div')
     //     document.body.appendChild(card)
@@ -14,4 +16,3 @@ class Artists {
     //     createArtistCard()
     //   })
 
-    }

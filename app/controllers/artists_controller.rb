@@ -17,6 +17,12 @@ class ArtistsController < ApplicationController
     render json: ArtistSerializer.new(artist)
   end
 
+  def new
+  end
+  
+  def create
+  end
+
   private
     def artist_params
       params.require(:artist).permit(:name, :body)

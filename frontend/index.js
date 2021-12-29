@@ -17,6 +17,8 @@ function getArtists() {
     .then(artist => {
       artist.data.forEach(artist => {
           // check how data is nested
+          
+          let newArtist = new Artist(artist, artist.attributes)
           render(artist)
       })
       // .then(artists => {
@@ -33,6 +35,7 @@ function getArtists() {
 function render(artist) {
   const artistsContainer = document.querySelector('#artists-container')
   const h2 = document.createElement('h2')
+  debugger
   h2.innerText = artist.attributes.name
   artistsContainer.appendChild(h2)
 
@@ -55,20 +58,31 @@ function createFormHandler(e) {
 }
 
 function postFetch(name) {
-  console.log(name);
+  const bodyData = {name}
+  fetch(endPoint, {
+    method: 'POST', 
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(bodyData)
+  })
+  .then(response => response.json())
+  .then(artist => {
+    console.log(artist);
+    const artistData = artist.data
+    render(artistData)
+  })
 }
   
-  function renderArtists(artists) {
-    const main = document.querySelector('main')
-    const h2 = document.createElement('h2')
-    h2.innerText = artists
-    main.appendChild(h2)
-    artists.forEach(artist => {
-      const h2 = document.createElement('h2')
-      h2.innerText = artist.name
-      main.appendChild(h2)
-    })
-  }
+  // function renderArtists(artists) {
+  //   const main = document.querySelector('main')
+  //   const h2 = document.createElement('h2')
+  //   h2.innerText = artists
+  //   main.appendChild(h2)
+  //   artists.forEach(artist => {
+  //     const h2 = document.createElement('h2')
+  //     h2.innerText = artist.name
+  //     main.appendChild(h2)
+  //   })
+  // }
 
   
 
