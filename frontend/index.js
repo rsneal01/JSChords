@@ -63,7 +63,9 @@ function postFetch(name) {
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(bodyData)
   })
-  .then(response => response.json())
+  .then(resp => {
+    return resp.json()
+  })
   .then(artist => {
     console.log(artist);
     const artistData = artist.data
