@@ -35,7 +35,6 @@ function getArtists() {
 function render(artist) {
   const artistsContainer = document.querySelector('#artists-container')
   const h2 = document.createElement('h2')
-  debugger
   h2.innerText = artist.attributes.name
   artistsContainer.appendChild(h2)
 
