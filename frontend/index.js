@@ -9,13 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
 function getArtists() {
-    fetch(endPoint)
+    fetch(endPoint+`/artists`)
       .then(resp => {
       return resp.json()
     })
     .then(artist => {
       artist.data.forEach(artist => {
-        debugger
+        
           let newArtist = new Artist(artist, artist.attributes)
           render(artist)
       })
