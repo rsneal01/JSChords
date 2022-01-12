@@ -24,6 +24,7 @@ function getArtists() {
 }
 
 function render(artist) {
+
   const artistsContainer = document.querySelector('#artists-container')
   const h2 = document.createElement('h2')
   h2.innerText = artist.attributes.name
@@ -40,7 +41,7 @@ function createFormHandler(e) {
 
 function postFetch(name) {
   const bodyData = {name}
-  fetch(endPoint, {
+  fetch(endPoint+`/artists`, {
     method: 'POST', 
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(bodyData)
@@ -49,8 +50,10 @@ function postFetch(name) {
     return resp.json()
   })
   .then(artist => {
+    // artist is not being returned as json? no 'data' property
     console.log(artist);
     const artistData = artist.data
+    debugger
     render(artistData)
   })
 }
