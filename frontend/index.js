@@ -77,7 +77,7 @@ function createSongFormHandler(e) {
   songPostFetch(songNameInput, artistId)
 }
 
-function songPostFetch(name) {
+function songPostFetch(name, artistId) {
   const bodyData = {name}
   fetch(endPoint+`/songs`, {
     method: 'POST', 
