@@ -11,4 +11,6 @@
 # Song.destroy_all
 
 beyonce = Artist.create(name: "Beyonce")
-halo = Song.create(name: "Halo", artist_id: beyonce.id, intro: "G Am Em C", verse: "G Am Em C", chorus: "Am Em C G")
+the_midnight = Artist.create(name: "The Midnight")
+labrinth = Artist.create(name: "Labrinth")
+imagine_dragons = Artist.create(name: "Imagine Dragons")
