@@ -7,7 +7,7 @@ class SongsController < ApplicationController
     end
 
     def create
-    song = song.new(song_params)
+    song = Song.new(song_params)
     if song.save
       render json: song, status: :accepted
     else
@@ -17,7 +17,7 @@ class SongsController < ApplicationController
 
     private
     def song_params
-      params.require(:song).permit(:name, :body)
+      params.require(:song).permit(:name, :artist_id)
     end
 
 end
