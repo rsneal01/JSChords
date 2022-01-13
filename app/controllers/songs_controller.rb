@@ -1,29 +1,23 @@
 class SongsController < ApplicationController
 
-    def new
-        artist = Artist.find(params[:id])
-        song = Song.new(artist_id: artist.id)
+    def index
+        songs = Song.all
+         #binding.pry
+        render json: SongSerializer.new(songs)
     end
 
     def create
-        # binding.pry
-        song = Song.new(song_params)
-        if song.save
-            render json: song, status: :accepted
-        else
-            render json: {errors: song.errors.full_messages}, status: :unprocessible_entity
-        end
+    song = song.new(song_params)
+    if song.save
+      render json: song, status: :accepted
+    else
+      render json: {errors: song.errors.full_messages}, status: :unprocessible_entity
     end
-
-    def show
-        # song show page will display name, intro, verse, and chorus of selected song
-        song = Song.find(params[:id])
-        render json: SongSerializer.new(song, options)
-    end
+  end
 
     private
     def song_params
-      params.require(:song).permit(:name, :intro, :verse, :chorus, :body)
+      params.require(:song).permit(:name, :body)
     end
 
 end

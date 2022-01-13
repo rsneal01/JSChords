@@ -1,8 +1,9 @@
 class Song {
-    constructor(name, intro, verse, chorus){
-        this.name = name
-        this.intro = intro
-        this.verse = verse
-        this.chorus = chorus
+    constructor(song, songAttributes){
+        this.id = song.id
+        this.name = songAttributes.name
+        Song.all.push(this)
     }
 }
+
+Song.all = [];

@@ -52,9 +52,12 @@ function postFetch(name) {
   .then(artist => {
     // artist is not being returned as json? no 'data' property
     console.log(artist);
-    const artistData = artist.data
-    debugger
-    render(artistData)
+    const artistsContainer = document.querySelector('#artists-container')
+    const h2 = document.createElement('h2')
+    h2.innerText = artist.name
+    artistsContainer.appendChild(h2)
+    // const artistData = artist.data
+    // render(artistData)
   })
 }
   
