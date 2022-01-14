@@ -23,7 +23,7 @@ class ArtistsController < ApplicationController
     if artist.save
       render json: artist, status: :accepted
     else
-      render json: {errors: artist.errors.full_messages}, status: :unprocessible_entity
+      render json: {errors: artist.errors.full_messages}, status: :unprocessable_entity
     end
   end
 
