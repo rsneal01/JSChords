@@ -90,12 +90,15 @@ function songPostFetch(name, artist_id) {
   .then(song => {
     // artist is not being returned as json? no 'data' property
     console.log(song);
+    // debugger
     const artistsContainer = document.querySelector('#artists-container')
     const h2 = document.createElement('h2')
+    const h4 = document.createElement('h4')
     h2.innerText = song.name
+    // h4.innerText = song.attributes.artist.name
     artistsContainer.appendChild(h2)
-    // const artistData = artist.data
-    // render(artistData)
+    artistsContainer.appendChild(h4)
+    // render(song)
   })
 }
   
