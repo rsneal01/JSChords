@@ -28,7 +28,6 @@ function getSongs() {
 }
 
 function render(song) {
-
   const artistsContainer = document.querySelector('#artists-container')
   const h2 = document.createElement('h2')
   const h4 = document.createElement('h4')
@@ -37,38 +36,6 @@ function render(song) {
   artistsContainer.appendChild(h2)
   artistsContainer.appendChild(h4)
 }
-
-// function createFormHandler(e) {
-//   e.preventDefault()
-//   const nameInput = document.querySelector('#input-name').value
-  
-//   postFetch(nameInput)
-// }
-
-
-
-// function postFetch(name) {
-//   const bodyData = {name}
-//   fetch(endPoint+`/artists`, {
-//     method: 'POST', 
-//     headers: {'Content-Type': 'application/json'},
-//     body: JSON.stringify(bodyData)
-//   })
-//   .then(resp => {
-//     return resp.json()
-//   })
-//   .then(artist => {
-//     // artist is not being returned as json? no 'data' property
-//     console.log(artist);
-//     const artistsContainer = document.querySelector('#artists-container')
-//     const h2 = document.createElement('h2')
-//     h2.innerText = artist.name
-//     artistsContainer.appendChild(h2)
-//     // const artistData = artist.data
-//     // render(artistData)
-//   })
-// }
-
 
 function createSongFormHandler(e) {
   e.preventDefault()
@@ -102,3 +69,31 @@ function songPostFetch(name, artist_id) {
   })
 }
   
+// function createFormHandler(e) {
+//   e.preventDefault()
+//   const nameInput = document.querySelector('#input-name').value
+  
+//   postFetch(nameInput)
+// }
+
+// function postFetch(name) {
+//   const bodyData = {name}
+//   fetch(endPoint+`/artists`, {
+//     method: 'POST', 
+//     headers: {'Content-Type': 'application/json'},
+//     body: JSON.stringify(bodyData)
+//   })
+//   .then(resp => {
+//     return resp.json()
+//   })
+//   .then(artist => {
+//     // artist is not being returned as json? no 'data' property
+//     console.log(artist);
+//     const artistsContainer = document.querySelector('#artists-container')
+//     const h2 = document.createElement('h2')
+//     h2.innerText = artist.name
+//     artistsContainer.appendChild(h2)
+//     // const artistData = artist.data
+//     // render(artistData)
+//   })
+// }
