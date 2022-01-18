@@ -9,7 +9,7 @@ class SongsController < ApplicationController
     def create
         song = Song.new(song_params)
     if song.save
-      render json: song, status: :accepted
+      render json: SongSerializer.new(song)
     else
       render json: {errors: song.errors.full_messages}, status: :unprocessable_entity
     end
